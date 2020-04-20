@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+   
+    <title>Movie Similarity</title>
+
+</head>
+<style>
+
+    a.fixed {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 60px;
+        
+    }
+</style>
+<a class="fixed" href="https://github.com/prafulpb99/Movie_Recommendation_Using_Plot_Summary">Github</a>
+
+<body>
+    <div class="header">
+        <h1 align="center">Movie Recommendation Portal</h1>
+    </div>
+
+
+
+
+
+
+
+    <div class='container outer-body'>
+        <div class='row'>
+            <div class='col-md-6 offset-3'>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="user-input">
+                            <form action="{{ url_for('predict')}}" method="POST">
+                                <span>Enter Movie Title:</span>
+                                <textarea name="message" rows="1" cols="65" class="form-control"></textarea>
+                                <input type="submit" class="btn-info" value="Predict">
+                            </form>
+                                
+                                
+                                
+                        </div>
+                        <hr>
+
+                        <div class="predicitons">
+                            <div class="result">
+                                <span class="pred-label">Recommendation:</span>
+                                
+                                <br>
+                                <span id="result">{{ prediction_text }}{{ message_text }}</span>
+                                
+                                <br>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
